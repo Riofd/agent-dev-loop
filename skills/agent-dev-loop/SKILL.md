@@ -91,7 +91,7 @@ fi
 
 ```bash
 claude --permission-mode bypassPermissions --print \
-  --model deepseek/deepseek-v4-pro \
+  --model deepseek-v4-pro \
   --dangerously-skip-permissions \
   "## 角色
 你是一个高级需求分析和任务规划专家。你的任务是将复杂需求拆分为 IO 清晰、边界明确、易于独立测试的子功能模块。
@@ -148,7 +148,7 @@ codex exec --full-auto \
 
 ```bash
 claude --permission-mode bypassPermissions --print \
-  --model deepseek/deepseek-v4-pro \
+  --model deepseek-v4-pro \
   "## 对抗评审回复
 方案评审 agent 提出了以下评审意见，请逐一认真思考和回复：
 
@@ -188,7 +188,7 @@ openclaw system event --text \"任务规划回复完成，等待下一轮评审\
 
 ```bash
 claude --permission-mode bypassPermissions --print \
-  --model zai/glm-5 \
+  --model glm-5.1 \
   "## 当前任务
 实现子功能模块：${MODULE_NAME}
 
@@ -229,7 +229,7 @@ openclaw system event --text \"模块 ${MODULE_NAME} 实现完成，等待评审
 **评审 Agent A（glm-5.1 / claude-code）：**
 ```bash
 claude --permission-mode bypassPermissions --print \
-  --model zai/glm-5 \
+  --model glm-5.1 \
   "## 角色
 你是代码评审专家，精通 Python 高效实现、性能优化、测试设计。
 你正在评审由代码编写 agent 完成的模块：${MODULE_NAME}
@@ -284,7 +284,7 @@ deepseek-v4-pro 汇总两个评审意见并裁定：
 
 ```bash
 claude --permission-mode bypassPermissions --print \
-  --model deepseek/deepseek-v4-pro \
+  --model deepseek-v4-pro \
   "## 角色
 你是代码评审专家，负责综合两个评审 agent 的意见，给出最终裁定。
 
@@ -324,7 +324,7 @@ claude --permission-mode bypassPermissions --print \
 # 询问两个评审 agent 对综合意见的看法
 # Agent A 回复
 claude --permission-mode bypassPermissions --print \
-  --model zai/glm-5 \
+  --model glm-5.1 \
   "代码评审专家给出了以下综合评审意见：
   读取 ${PROJECT_DIR}/sessions/review_final_${MODULE_NAME}.json
 
@@ -350,7 +350,7 @@ codex exec --full-auto \
 
 ```bash
 claude --permission-mode bypassPermissions --print \
-  --model zai/glm-5 \
+  --model glm-5.1 \
   "## 任务
 根据评审意见修改模块 ${MODULE_NAME} 的代码。
 
